@@ -92,7 +92,6 @@ datasets/
 # -----------------------------------------------------------------------------
 outputs/
 output/
-results/
 runs/
 predictions/
 submission*.csv

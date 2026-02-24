@@ -1,0 +1,165 @@
+# =============================================================================
+# tfg-ugc-retention — Engagement Prediction of Short Videos (SnapUGC)
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+MANIFEST
+
+# -----------------------------------------------------------------------------
+# Virtual environments & Conda
+# -----------------------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+conda-env/
+.conda/
+# Keep environment definition files (environment.yaml, requirements.txt)
+
+# -----------------------------------------------------------------------------
+# Jupyter
+# -----------------------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# -----------------------------------------------------------------------------
+# Model checkpoints & weights  (large binary files — use DVC or similar)
+# -----------------------------------------------------------------------------
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.h5
+*.hdf5
+*.pkl
+*.joblib
+# Exception: allow small fixture files if needed
+# !tests/fixtures/*.pkl
+
+# -----------------------------------------------------------------------------
+# Dataset & media files  (store on remote storage, not in git)
+# -----------------------------------------------------------------------------
+# Videos
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+*.flv
+# Audio
+*.wav
+*.mp3
+*.aac
+*.flac
+# Images (raw frames)
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.tiff
+# Exception: allow repo documentation assets
+!docs/**/*.png
+!docs/**/*.jpg
+!README_assets/**
+
+# -----------------------------------------------------------------------------
+# Dataset tabular files  (large CSVs go to remote storage)
+# -----------------------------------------------------------------------------
+data/
+dataset/
+datasets/
+*.parquet
+*.feather
+*.arrow
+# Keep small metadata / split definition CSVs tracked explicitly if needed:
+# !splits/*.csv
+
+# -----------------------------------------------------------------------------
+# Experiment outputs & submissions
+# -----------------------------------------------------------------------------
+outputs/
+output/
+results/
+runs/
+predictions/
+submission*.csv
+submission*.json
+eval_results/
+
+# -----------------------------------------------------------------------------
+# Logging & experiment tracking
+# -----------------------------------------------------------------------------
+*.log
+logs/
+wandb/
+mlruns/
+tensorboard/
+lightning_logs/
+.neptune/
+
+# -----------------------------------------------------------------------------
+# HuggingFace & model hub caches
+# -----------------------------------------------------------------------------
+.cache/
+cache/
+hub/
+# ~/.cache/huggingface is outside the repo, but guard local caches:
+hf_cache/
+transformers_cache/
+
+# -----------------------------------------------------------------------------
+# ffmpeg / audio-visual processing temporaries
+# -----------------------------------------------------------------------------
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+frames/
+audio_tmp/
+
+# -----------------------------------------------------------------------------
+# Secrets & credentials
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# -----------------------------------------------------------------------------
+# IDE & editor
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.spyderproject.cfg
+.ropeproject/
+
+# -----------------------------------------------------------------------------
+# OS artefacts
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini

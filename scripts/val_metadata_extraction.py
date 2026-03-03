@@ -7,16 +7,28 @@ ECR al CSV de salida, uniendo por Id los metadatos extraidos con ffprobe y las
 etiquetas ground-truth procedentes de un fichero de labels (val_truth.csv,
 test_truth.csv o cualquier CSV que contenga las columnas Id y ECR).
 
-Uso tipico:
-    python scripts/val_metadata_extraction.py \
-        --input  /media/5tbraid/data/martugue/SnapUGC/val_videos/ \
-        --labels data/raw/val_truth.csv \
-        --output data/processed/val_metadata.csv
+Estructura de datos esperada en el servidor:
+    /media/5tbraid/data/martugue/SnapUGC/
+    ├── processed/
+    │   └── train_metadata.csv
+    └── raw/
+        ├── test_data.csv
+        ├── test_truth.csv
+        ├── test_videos/
+        ├── train_data.csv
+        ├── train_videos/
+        ├── val_data.csv
+        ├── val_truth.csv
+        └── val_videos/
 
+Uso tipico (los defaults apuntan a val):
+    python scripts/val_metadata_extraction.py
+
+Para test, sobreescribir los tres argumentos:
     python scripts/val_metadata_extraction.py \
-        --input  /media/5tbraid/data/martugue/SnapUGC/test_videos/ \
-        --labels data/raw/test_truth.csv \
-        --output data/processed/test_metadata.csv
+        --input  /media/5tbraid/data/martugue/SnapUGC/raw/test_videos \
+        --labels /media/5tbraid/data/martugue/SnapUGC/raw/test_truth.csv \
+        --output /media/5tbraid/data/martugue/SnapUGC/processed/test_metadata.csv
 """
 
 import subprocess
@@ -281,22 +293,25 @@ def main() -> None:
             "ground-truth de ECR de un fichero de labels."
         ),
     )
+    # Raiz de datos en el servidor: /media/5tbraid/data/martugue/SnapUGC/
+    DATA_ROOT = "/media/5tbraid/data/martugue/SnapUGC"
+
     parser.add_argument(
         "--input",
-        default="/media/5tbraid/data/martugue/SnapUGC/val_videos/",
+        default=os.path.join(DATA_ROOT, "raw", "val_videos"),
         help="Directorio de entrada con los videos .mp4",
     )
     parser.add_argument(
         "--labels",
-        default="data/raw/val_truth.csv",
+        default=os.path.join(DATA_ROOT, "raw", "val_truth.csv"),
         help=(
             "CSV con las etiquetas ECR (columnas Id y ECR). "
-            "Ejemplos: data/raw/val_truth.csv, data/raw/test_truth.csv"
+            "Ejemplos: raw/val_truth.csv, raw/test_truth.csv"
         ),
     )
     parser.add_argument(
         "--output",
-        default="data/processed/val_metadata.csv",
+        default=os.path.join(DATA_ROOT, "processed", "val_metadata.csv"),
         help="Archivo CSV de salida con metadatos + ECR",
     )
     args = parser.parse_args()

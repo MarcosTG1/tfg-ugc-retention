@@ -185,16 +185,19 @@ def main():
     parser = argparse.ArgumentParser(description="Extractor de metadatos de video para SnapUGC.")
     
     # Añadimos un argumento que el usuario elegirá llamar "--input". Añadimos su configuración de default.
+    # Raiz de datos en el servidor: /media/5tbraid/data/martugue/SnapUGC/
+    DATA_ROOT = "/media/5tbraid/data/martugue/SnapUGC"
+
     parser.add_argument(
-        "--input", 
-        default="/media/5tbraid/data/martugue/SnapUGC/train_videos/",
+        "--input",
+        default=os.path.join(DATA_ROOT, "raw", "train_videos"),
         help="Directorio de entrada de videos"
     )
-    
+
     # Añadimos argumentación para "--output".
     parser.add_argument(
-        "--output", 
-        default="/media/5tbraid/data/martugue/SnapUGC/train_metadata.csv",
+        "--output",
+        default=os.path.join(DATA_ROOT, "processed", "train_metadata.csv"),
         help="Archivo CSV de salida"
     )
     

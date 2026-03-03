@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Script para la extraccion de metadatos tecnicos de videos de validacion/test
 con la etiqueta ECR asociada a cada video.

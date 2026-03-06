@@ -6,7 +6,7 @@ from decord import VideoReader, cpu
 
 # Define paths
 VIDEO_DIR = "/media/5tbraid/data/martugue/SnapUGC/raw/train_videos"
-CSV_PATH = "train_data.csv"
+CSV_PATH = "/media/5tbraid/data/martugue/SnapUGC/raw/train_data.csv"
 OUTPUT_TRAIN = "train.json"
 
 def check_video(video_path):

@@ -6,7 +6,7 @@ python -u videollama2/train_EVQA.py \
     --model_type videollama2_qwen2 \
     --model_path /media/2tbraid/martugue/TFG/models-weights/videollama2_weights \
     --data_folder ${DATA_DIR} \
-    --data_path /media/5tbraid/data/martugue/SnapUGC/raw/train.json \
+    --data_path /media/5tbraid/data/martugue/SnapUGC/processed/train.json \
     --vision_tower google/siglip-so400m-patch14-384 \
     --audio_tower /media/2tbraid/martugue/TFG/models-weights/videollama2_weights/audio_tower.bin \
     --pretrain_mm_mlp_adapter_a /media/2tbraid/martugue/TFG/models-weights/videollama2_weights/mm_projector_a.bin \

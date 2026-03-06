@@ -7,7 +7,7 @@ from decord import VideoReader, cpu
 # Define paths
 VIDEO_DIR = "/media/5tbraid/data/martugue/SnapUGC/raw/train_videos"
 CSV_PATH = "/media/5tbraid/data/martugue/SnapUGC/raw/train_data.csv"
-OUTPUT_TRAIN = "train.json"
+OUTPUT_TRAIN = "/media/5tbraid/data/martugue/SnapUGC/raw/train.json"
 
 def check_video(video_path):
     """检查视频文件是否存在且可以正常读取
